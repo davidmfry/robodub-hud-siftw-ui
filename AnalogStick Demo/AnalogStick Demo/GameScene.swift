@@ -11,9 +11,13 @@ import SpriteKit
 class GameScene: SKScene, AnalogStickProtocol {
     var appleNode: SKSpriteNode?
     var crossHair: SKSpriteNode?
+    var fireButtton: SKSpriteNode?
+    var reloadButton: SKSpriteNode?
+    
     
     let moveAnalogStick: AnalogStick = AnalogStick()
     let rotateAnalogStick: AnalogStick = AnalogStick()
+    
     override func didMoveToView(view: SKView)
     {
         /* Setup your scene here */
@@ -42,16 +46,33 @@ class GameScene: SKScene, AnalogStickProtocol {
         }
         self.addChild(self.crossHair!)
         
+        // Fire button
+        self.fireButtton = SKSpriteNode(imageNamed: "firebutton-66")
+        if let fbNode = self.fireButtton
+        {
+            fbNode.position = CGPointMake(170.0, 50.0)
+        }
+        self.addChild(self.fireButtton!)
+        
+        // Reload button
+        self.reloadButton = SKSpriteNode(imageNamed: "reload-button")
+        if let rbNode = self.reloadButton
+        {
+            rbNode.position = CGPointMake(400, 50.0)
+        }
+        self.addChild(self.reloadButton!)
+        
+        
         
         // apple
-        appleNode = SKSpriteNode(imageNamed: "apple")
-        if let aN = appleNode {
-            aN.physicsBody = SKPhysicsBody(texture: aN.texture, size: aN.size)
-            aN.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-            aN.physicsBody?.affectedByGravity = false;
-            self.insertChild(aN, atIndex: 0)
-        }
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+//        appleNode = SKSpriteNode(imageNamed: "apple")
+//        if let aN = appleNode {
+//            aN.physicsBody = SKPhysicsBody(texture: aN.texture, size: aN.size)
+//            aN.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+//            aN.physicsBody?.affectedByGravity = false;
+//            self.insertChild(aN, atIndex: 0)
+//        }
+//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         //addOneApple()
     }
     
@@ -66,9 +87,22 @@ class GameScene: SKScene, AnalogStickProtocol {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         super.touchesBegan(touches, withEvent: event)
-        if let touch = touches.anyObject() as? UITouch {
-            appleNode?.position = touch.locationInNode(self)
-            println(touch.locationInNode(self))
+        if let touch = touches.anyObject() as? UITouch
+        {
+            var touchPos = touch.locationInNode(self)
+            //appleNode?.position = touch.locationInNode(self)
+            
+            if self.nodeAtPoint(touchPos) == self.fireButtton
+            {
+                println("FIRE")
+            }
+            
+            if self.nodeAtPoint(touchPos) == self.reloadButton
+            {
+                println("Reload")
+            }
+            
+            
         }
     }
     
@@ -77,18 +111,36 @@ class GameScene: SKScene, AnalogStickProtocol {
     }
     
     // MARK: AnalogStickProtocol
-    func moveAnalogStick(analogStick: AnalogStick, velocity: CGPoint, angularVelocity: Float) {
-        if let aN = appleNode {
-            if analogStick.isEqual(moveAnalogStick)
-            {
-                println("move stick: \(velocity)")
-                aN.position = CGPointMake(aN.position.x + (velocity.x * 0.12), aN.position.y + (velocity.y * 0.12))
-                //println("Apple location on screen \(aN.position)")
-            } else if analogStick.isEqual(rotateAnalogStick)
-            {
-                println("move stick: \(angularVelocity)")
-                aN.zRotation = CGFloat(angularVelocity)
-            }
+    func moveAnalogStick(analogStick: AnalogStick, velocity: CGPoint, angularVelocity: Float)
+    {
+        var velocityModifier = -4
+        var velX = Int(velocity.x) * velocityModifier
+        var velY = Int(velocity.y) * velocityModifier
+        
+
+        // Data for the left and right thumb stick
+        if analogStick.isEqual(moveAnalogStick)
+        {
+
+            println("move stick data: \(velX), \(velY) ")
+            
         }
+        else if analogStick.isEqual(rotateAnalogStick)
+        {
+            println("rotate stick data: \(angularVelocity)")
+        }
+        
+//        if let aN = appleNode {
+//            if analogStick.isEqual(moveAnalogStick)
+//            {
+//                println("move stick: \(velocity)")
+//                aN.position = CGPointMake(aN.position.x + (velocity.x * 0.12), aN.position.y + (velocity.y * 0.12))
+//                //println("Apple location on screen \(aN.position)")
+//            } else if analogStick.isEqual(rotateAnalogStick)
+//            {
+//                println("move stick: \(angularVelocity)")
+//                aN.zRotation = CGFloat(angularVelocity)
+//            }
+//        }
     }
 }

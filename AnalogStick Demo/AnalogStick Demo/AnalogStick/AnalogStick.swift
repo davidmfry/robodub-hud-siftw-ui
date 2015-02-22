@@ -4,7 +4,7 @@
 //
 //  Created by Dmitriy Mitrophanskiy on 28.09.14.
 //
-// Modfied by David Fry 2.21.15
+// Modfied by David Fry on 2.21.15
 
 import SpriteKit
 
@@ -54,22 +54,28 @@ class AnalogStick: SKNode {
             }
         }
     }
-    func update() {
-        if isTracking {
+    func update()
+    {
+        if isTracking
+        {
            delagate?.moveAnalogStick(self, velocity: self.velocity, angularVelocity: self.angularVelocity)
         }
     }
+    
     let kThumbSpringBackDuration: NSTimeInterval = 0.15 // action duration
     var isTracking = false
     var velocity = CGPointZero, anchorPointInPoints = CGPointZero
     var angularVelocity = Float()
-    convenience init(thumbImage: UIImage?) {
+    convenience init(thumbImage: UIImage?)
+    {
         self.init(thumbImage: thumbImage, bgImage: nil)
     }
-    convenience init(bgImage: UIImage?) {
+    convenience init(bgImage: UIImage?)
+    {
         self.init(thumbImage: nil, bgImage: bgImage)
     }
-    convenience override init() {
+    convenience override init()
+    {
         self.init(thumbImage: nil, bgImage: nil)
     }
     init(thumbImage: UIImage?, bgImage: UIImage?) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63B0D8C61A9A543200DC349A /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0D8C51A9A543200DC349A /* Button.swift */; };
 		8C2C1F6819DD762300510F35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2C1F6719DD762300510F35 /* AppDelegate.swift */; };
 		8C2C1F6C19DD762300510F35 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2C1F6B19DD762300510F35 /* GameScene.swift */; };
 		8C2C1F6E19DD762300510F35 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2C1F6D19DD762300510F35 /* GameViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63B0D8C51A9A543200DC349A /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		8C2C1F6219DD762300510F35 /* AnalogStick Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnalogStick Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2C1F6619DD762300510F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C2C1F6719DD762300510F35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				8C2C1F7219DD762300510F35 /* Images.xcassets */,
 				8C2C1F7419DD762300510F35 /* LaunchScreen.xib */,
 				8C2C1F6519DD762300510F35 /* Supporting Files */,
+				63B0D8C51A9A543200DC349A /* Button.swift */,
 			);
 			path = "AnalogStick Demo";
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B0D8C61A9A543200DC349A /* Button.swift in Sources */,
 				8C2C1F9119DD76AA00510F35 /* AnalogStick.swift in Sources */,
 				8C2C1F6C19DD762300510F35 /* GameScene.swift in Sources */,
 				8C2C1F6E19DD762300510F35 /* GameViewController.swift in Sources */,
