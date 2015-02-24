@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63A2FF651A9A8D81007920AA /* temp.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A2FF641A9A8D81007920AA /* temp.m */; };
+		63A2FF681A9A8DDA007920AA /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A2FF671A9A8DDA007920AA /* Firebase.framework */; };
+		63A2FF6A1A9A92C2007920AA /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A2FF691A9A92C2007920AA /* libc++abi.dylib */; };
 		63B0D8C61A9A543200DC349A /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0D8C51A9A543200DC349A /* Button.swift */; };
+		63B0D8CA1A9A753800DC349A /* StreamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B0D8C91A9A753800DC349A /* StreamImage.swift */; };
+		63B0D8D31A9A86AB00DC349A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B0D8D21A9A86AB00DC349A /* libicucore.dylib */; };
+		63B0D8D51A9A86B800DC349A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B0D8D41A9A86B800DC349A /* libc++.dylib */; };
+		63B0D8D71A9A86C200DC349A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B0D8D61A9A86C200DC349A /* CFNetwork.framework */; };
+		63B0D8D91A9A86CD00DC349A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B0D8D81A9A86CD00DC349A /* Security.framework */; };
+		63B0D8DB1A9A86D900DC349A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B0D8DA1A9A86D900DC349A /* SystemConfiguration.framework */; };
 		8C2C1F6819DD762300510F35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2C1F6719DD762300510F35 /* AppDelegate.swift */; };
 		8C2C1F6C19DD762300510F35 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2C1F6B19DD762300510F35 /* GameScene.swift */; };
 		8C2C1F6E19DD762300510F35 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2C1F6D19DD762300510F35 /* GameViewController.swift */; };
@@ -33,7 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63A2FF631A9A8D81007920AA /* temp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = temp.h; sourceTree = SOURCE_ROOT; };
+		63A2FF641A9A8D81007920AA /* temp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = temp.m; sourceTree = SOURCE_ROOT; };
+		63A2FF661A9A8D9B007920AA /* AnalogStick Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnalogStick Demo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		63A2FF671A9A8DDA007920AA /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		63A2FF691A9A92C2007920AA /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
 		63B0D8C51A9A543200DC349A /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		63B0D8C91A9A753800DC349A /* StreamImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamImage.swift; sourceTree = "<group>"; };
+		63B0D8D21A9A86AB00DC349A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		63B0D8D41A9A86B800DC349A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		63B0D8D61A9A86C200DC349A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		63B0D8D81A9A86CD00DC349A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		63B0D8DA1A9A86D900DC349A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8C2C1F6219DD762300510F35 /* AnalogStick Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnalogStick Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2C1F6619DD762300510F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C2C1F6719DD762300510F35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +77,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A2FF6A1A9A92C2007920AA /* libc++abi.dylib in Frameworks */,
+				63B0D8DB1A9A86D900DC349A /* SystemConfiguration.framework in Frameworks */,
+				63A2FF681A9A8DDA007920AA /* Firebase.framework in Frameworks */,
+				63B0D8D91A9A86CD00DC349A /* Security.framework in Frameworks */,
+				63B0D8D71A9A86C200DC349A /* CFNetwork.framework in Frameworks */,
+				63B0D8D51A9A86B800DC349A /* libc++.dylib in Frameworks */,
+				63B0D8D31A9A86AB00DC349A /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,9 +97,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63B0D8D11A9A863F00DC349A /* Firebase Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Firebase Lib";
+			sourceTree = "<group>";
+		};
 		8C2C1F5919DD762300510F35 = {
 			isa = PBXGroup;
 			children = (
+				63A2FF691A9A92C2007920AA /* libc++abi.dylib */,
+				63B0D8DA1A9A86D900DC349A /* SystemConfiguration.framework */,
+				63B0D8D81A9A86CD00DC349A /* Security.framework */,
+				63B0D8D61A9A86C200DC349A /* CFNetwork.framework */,
+				63B0D8D41A9A86B800DC349A /* libc++.dylib */,
+				63B0D8D21A9A86AB00DC349A /* libicucore.dylib */,
+				63B0D8D11A9A863F00DC349A /* Firebase Lib */,
+				63B0D8C91A9A753800DC349A /* StreamImage.swift */,
 				8C2C1F6419DD762300510F35 /* AnalogStick Demo */,
 				8C2C1F7E19DD762300510F35 /* AnalogStick DemoTests */,
 				8C2C1F6319DD762300510F35 /* Products */,
@@ -91,6 +133,8 @@
 		8C2C1F6419DD762300510F35 /* AnalogStick Demo */ = {
 			isa = PBXGroup;
 			children = (
+				63A2FF671A9A8DDA007920AA /* Firebase.framework */,
+				63A2FF661A9A8D9B007920AA /* AnalogStick Demo-Bridging-Header.h */,
 				8C2C1F8B19DD76AA00510F35 /* AnalogStick */,
 				8C2C1F8F19DD76AA00510F35 /* apple.png */,
 				8C2C1F9019DD76AA00510F35 /* apple@2x.png */,
@@ -102,6 +146,8 @@
 				8C2C1F7419DD762300510F35 /* LaunchScreen.xib */,
 				8C2C1F6519DD762300510F35 /* Supporting Files */,
 				63B0D8C51A9A543200DC349A /* Button.swift */,
+				63A2FF631A9A8D81007920AA /* temp.h */,
+				63A2FF641A9A8D81007920AA /* temp.m */,
 			);
 			path = "AnalogStick Demo";
 			sourceTree = "<group>";
@@ -246,6 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B0D8C61A9A543200DC349A /* Button.swift in Sources */,
+				63A2FF651A9A8D81007920AA /* temp.m in Sources */,
+				63B0D8CA1A9A753800DC349A /* StreamImage.swift in Sources */,
 				8C2C1F9119DD76AA00510F35 /* AnalogStick.swift in Sources */,
 				8C2C1F6C19DD762300510F35 /* GameScene.swift in Sources */,
 				8C2C1F6E19DD762300510F35 /* GameViewController.swift in Sources */,
@@ -328,6 +376,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -363,6 +412,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -372,9 +422,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AnalogStick",
+					Demo,
+				);
 				INFOPLIST_FILE = "AnalogStick Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AnalogStick Demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -382,9 +441,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AnalogStick",
+					Demo,
+				);
 				INFOPLIST_FILE = "AnalogStick Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AnalogStick Demo-Bridging-Header.h";
 			};
 			name = Release;
 		};

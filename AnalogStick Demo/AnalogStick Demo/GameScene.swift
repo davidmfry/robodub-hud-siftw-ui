@@ -4,17 +4,23 @@
 //
 //  Created by Dmitriy Mitrophanskiy on 28.09.14.
 //  Copyright (c) 2014 Dmitriy Mitrophanskiy. All rights reserved.
-//
+//  Modfied by David Fry on 2.21.15
 
 import SpriteKit
 
-class GameScene: SKScene, AnalogStickProtocol {
-    var appleNode: SKSpriteNode?
+class GameScene: SKScene, AnalogStickProtocol
+{
+    
+    // Firebase Setup
+    var ref = Firebase(url: "https://robodub.firebaseio.com")
+//    var appleNode: SKSpriteNode?
+    var bgImage: SKSpriteNode?
     var crossHair: SKSpriteNode?
     var fireButtton: SKSpriteNode?
     var reloadButton: SKSpriteNode?
+    var weatherLabel:SKLabelNode!
     
-    
+
     let moveAnalogStick: AnalogStick = AnalogStick()
     let rotateAnalogStick: AnalogStick = AnalogStick()
     
@@ -25,7 +31,27 @@ class GameScene: SKScene, AnalogStickProtocol {
         let thumbDiametr: CGFloat = 60
         let joysticksRadius = bgDiametr / 2
         
+        //self.getWeatherData()
+        
+        //Background
+        var bgImage = SKSpriteNode(imageNamed: "appBG")
+        bgImage.position = CGPointMake(self.size.width/2, self.size.height/2)
+        
+        self.addChild(bgImage)
         // Setup left joystick
+        
+        // Weather Label
+        self.weatherLabel = SKLabelNode(fontNamed: "Helvetica Neue")
+        self.weatherLabel.text = "Current Temp: \(self.getWeatherData())"
+        self.weatherLabel.fontSize = 30
+        //self.weatherLabel.color = UIColor.blackColor()
+        self.weatherLabel.position = CGPointMake(100.0, 280.0)
+        self.addChild(self.weatherLabel)
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.weatherLabel.text = "Current Temp: \(self.getWeatherData())"
+        })
+        
+        
         moveAnalogStick.bgNodeDiametr = bgDiametr
         moveAnalogStick.thumbNodeDiametr = thumbDiametr
         moveAnalogStick.position = CGPointMake(joysticksRadius + 15, joysticksRadius + 15)
@@ -64,24 +90,6 @@ class GameScene: SKScene, AnalogStickProtocol {
         
         
         
-        // apple
-//        appleNode = SKSpriteNode(imageNamed: "apple")
-//        if let aN = appleNode {
-//            aN.physicsBody = SKPhysicsBody(texture: aN.texture, size: aN.size)
-//            aN.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-//            aN.physicsBody?.affectedByGravity = false;
-//            self.insertChild(aN, atIndex: 0)
-//        }
-//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-        //addOneApple()
-    }
-    
-    func addOneApple()->Void {
-        let appleNode = SKSpriteNode(imageNamed: "apple");
-        appleNode.physicsBody = SKPhysicsBody(texture: appleNode.texture, size: appleNode.size)
-        appleNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        appleNode.physicsBody?.affectedByGravity = false;
-        self.addChild(appleNode)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -90,7 +98,6 @@ class GameScene: SKScene, AnalogStickProtocol {
         if let touch = touches.anyObject() as? UITouch
         {
             var touchPos = touch.locationInNode(self)
-            //appleNode?.position = touch.locationInNode(self)
             
             if self.nodeAtPoint(touchPos) == self.fireButtton
             {
@@ -106,8 +113,11 @@ class GameScene: SKScene, AnalogStickProtocol {
         }
     }
     
-    override func update(currentTime: CFTimeInterval) {
+    override func update(currentTime: CFTimeInterval)
+    {
         /* Called before each frame is rendered */
+        
+        
     }
     
     // MARK: AnalogStickProtocol
@@ -116,31 +126,38 @@ class GameScene: SKScene, AnalogStickProtocol {
         var velocityModifier = -4
         var velX = Int(velocity.x) * velocityModifier
         var velY = Int(velocity.y) * velocityModifier
+        var rot = (Int(angularVelocity) * -251) * -1
         
+        var dataRef = self.ref.childByAppendingPath("data")
+        var data = ["5":"\(velX)", "6":"\(velY)","7":"\(rot)"]
 
-        // Data for the left and right thumb stick
-        if analogStick.isEqual(moveAnalogStick)
-        {
-
-            println("move stick data: \(velX), \(velY) ")
-            
-        }
-        else if analogStick.isEqual(rotateAnalogStick)
-        {
-            println("rotate stick data: \(angularVelocity)")
-        }
+        dataRef.updateChildValues(data)
         
-//        if let aN = appleNode {
-//            if analogStick.isEqual(moveAnalogStick)
-//            {
-//                println("move stick: \(velocity)")
-//                aN.position = CGPointMake(aN.position.x + (velocity.x * 0.12), aN.position.y + (velocity.y * 0.12))
-//                //println("Apple location on screen \(aN.position)")
-//            } else if analogStick.isEqual(rotateAnalogStick)
-//            {
-//                println("move stick: \(angularVelocity)")
-//                aN.zRotation = CGFloat(angularVelocity)
-//            }
-//        }
     }
+    
+    func getNewImage() -> SKTexture
+    {
+        var url = NSURL(string: "https://robostream.blob.core.windows.net/robot/robot.jpg")
+        var imageData = NSData(contentsOfURL: url!)
+        var image = UIImage(data: imageData!)
+        var imageTexture = SKTexture(image: image!)
+        
+        return imageTexture
+    }
+    
+    func getWeatherData() -> String
+    {
+        let url = NSURL(string: "https://robostream.blob.core.windows.net/robot/temp.data")
+        var weatherData: NSString = ""
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+                weatherData = NSString(data: data, encoding: NSUTF8StringEncoding)!
+            self.weatherLabel.text = "Seattle: \(weatherData)f"
+        }
+        task.resume()
+        return weatherData
+
+    }
+    
+    
+
 }

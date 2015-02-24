@@ -4,7 +4,7 @@
 //
 //  Created by Dmitriy Mitrophanskiy on 02.10.14.
 //  Copyright (c) 2014 Dmitriy Mitrophanskiy. All rights reserved.
-//
+//  Modfied by David Fry on 2.21.15
 
 import UIKit
 
